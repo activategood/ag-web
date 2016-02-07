@@ -1,56 +1,113 @@
-var gulp = require('gulp')
-  , gpSass = require('gulp-ruby-sass')
-  , gpRename = require('gulp-rename')
-  , gpUglify = require('gulp-uglify')
-  , gpConcat = require('gulp-concat')
-  , gpClean = require('gulp-clean')
-  , browserSync = require('browser-sync')
-  , reload = browserSync.reload
+'use strict';
+
+const gulp = require('gulp')
+  , gulpSass = require('gulp-sass')
+  , gulpRename = require('gulp-rename')
+  , gulpUglify = require('gulp-uglify')
+  , gulpConcat = require('gulp-concat')
+  , gulpReplace = require('gulp-html-replace')
+  , gulpMinifyHtml = require('gulp-htmlmin')
+  , gulpNgAnnotate = require('gulp-ng-annotate')
+  , gulpClosure = require('gulp-jsclosure')
+  , templateCache = require('gulp-angular-templatecache')
+  , bs = require('browser-sync').create()
+  , reload = bs.reload
+  , p = require('path')
+  , historyApiFallback = require('connect-history-api-fallback')
 ;
 
-var vendorJs = [
-  'bower_components/angular/angular.js',
-  'bower_components/angular-ui-router/release/angular-ui-router.js',
-  'bower_components/angular/angular.js',
-  'bower_components/angular-jwt/dist/angular-jwt.js',
-  'bower_components/angular-toastr/dist/angular-toastr.js'
-];
+const paths = {
+  scripts: [
+    'src/vendor/angular/angular.js',
+    'src/vendor/angular-ui-router/release/angular-ui-router.js',
+    'src/vendor/angular/angular.js',
+    'src/vendor/angular-jwt/dist/angular-jwt.js',
+    'src/vendor/angular-toastr/dist/angular-toastr.js',
+    'src/vendor/jquery/dist/jquery.min.js',
+    'src/vendor/bootstrap/dist/js/bootstrap.min.js'
+  ]
+};
 
-gulp.task('default', function() {
-  
-});
+gulp.task('default', ['serve'])
+gulp.task('build', ['sass','templates','static'])
+gulp.task('static', ['copy:index','copy:js','copy:vendor'])
 
 // Compile SASS
 gulp.task('sass', function() {
-  return sass('app/src/styles/styles.scss')
-    .pipe(gulp.dest('dist/styles'))
-    .pipe(reload({ stream:true }));
-});
+  return gulp.src('src/styles/styles.scss')
+    .pipe(gulpSass())
+    .pipe(gulpConcat('styles.css'))
+    .pipe(gulp.dest('build/styles'))
+})
 
-gulp.task('clean', function() {
-  gulp.src('app/tmp/')
-    .pipe(gpClean({force: true}));
-});
+// Register templates in the template cache
+gulp.task('templates', function() {  
+  return gulp.src('src/app/**/*.html')
+    //.pipe(gulpMinifyHtml({collapseWhitespace: true}))
+    .pipe(templateCache({
+      module: 'templates',
+      standalone: true,
+      transformUrl: function(url) {
+        return url.replace(p.extname(url), '')
+      }
+    }))
+    .pipe(gulpConcat('templates.js'))
+    .pipe(gulp.dest('build/app'))
+})
 
-// Replace script tags with single minified script
-gulp.task('build:vendors', function() {
-  gulp.src(vendorJs)
-    .pipe(gpConcat('concat.js'))
-    .pipe(gulp.dest('app/tmp'))
-    .pipe(gpRename('ag.min.js'))
-    .pipe(gpUglify())
-    .pipe(gulp.dest('app/dist'));
-});
+gulp.task('copy:index', function() {
+  return gulp.src('src/index.html')
+    .pipe(gulp.dest('build'))
+})
 
-gulp.task('build', ['build:vendors', 'clean']);
+gulp.task('copy:js', function() {
+  return gulp.src([
+      'src/app/app.js',
+      'src/app/**/*.js'
+    ])
+    .pipe(gulp.dest('build/app'))
+})
+
+gulp.task('copy:vendor', function() {
+  return gulp.src('src/vendor/**/*')
+    .pipe(gulp.dest('build/vendor'))
+})
+
+gulp.task('reload:sass', ['sass'], function() {
+  bs.reload()
+})
+
+gulp.task('reload:static', ['static','templates'], function() {
+  bs.reload()
+})
+
+// gulp.task('scripts', ['templates'], function() {  
+//   return gulp.src(paths.scripts)
+//     .pipe(gulpConcat('ag.min.js'))
+//     //.pipe(gulpClosure())
+//     .pipe(gulpNgAnnotate())
+//     .pipe(gulpUglify({mangle: false}))
+//     .pipe(gulp.dest(paths.dist))
+// })
+
+// Concat and minify post scripts
+// gulp.task('postscripts', function() {
+//   return gulp.src(paths.postscripts)
+//     .pipe(gulpConcat('postscripts.min.js'))
+//     //.pipe(gulpClosure({window: true}))
+//     .pipe(gulpUglify({mangle: false}))
+//     .pipe(gulp.dest(paths.dist))
+// })
 
 // watch files for changes and reload
-gulp.task('serve', ['sass'], function() {
-  browserSync({
+gulp.task('serve', ['build'], function() {
+  bs.init({
     server: {
-      baseDir: 'src'
+      baseDir: 'build',
+      middleware: [ historyApiFallback() ]
     }
-  });
+  })
 
-  gulp.watch(['*.html', 'styles/**/*.scss', 'scripts/**/*.js'], {cwd: 'src'}, reload);
-});
+  gulp.watch(['styles/**/*.scss'], {cwd: 'src'}, ['reload:sass'])
+  gulp.watch(['*.html', 'app/**/*.html', 'app/**/*.js'], {cwd: 'src'}, ['reload:static']);
+})

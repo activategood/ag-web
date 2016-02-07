@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <base href="/">
+
+	<title>Activate Good</title>
+
+	<!-- build:css -->
+    <link rel="stylesheet" href="vendor/angular-toastr/dist/angular-toastr.css"></script>
+	<link rel="stylesheet" href="styles/styles.css"/>
+	<!-- endbuild -->
+
+	<!-- build:scripts -->
+	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="vendor/angular-jwt/dist/angular-jwt.js"></script>  
+    <script src="vendor/angular-toastr/dist/angular-toastr.js"></script>
+    <script src="app/templates.js"></script>
+    <script src="app/app.js"></script>
+
+    <script src="app/navBar/navBarDtv.js"></script>
+    <script src="app/opportunities/oppCardDtv.js"></script>
+    <script src="app/opportunities/oppListDtv.js"></script>
+    <script src="app/opportunities/oppListPageCtrl.js"></script>
+
+    <!-- endbuild -->
+    
+</head>
+<body>
+
+	<ag-nav-bar></ag-nav-bar>
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-xs-12" ui-view>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- build:postscripts -->
+	<script src="vendor/jquery/dist/jquery.min.js"></script>
+	<script src="vendor/tether/dist/js/tether.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
