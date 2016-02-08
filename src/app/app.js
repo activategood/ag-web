@@ -5,7 +5,8 @@ var app = angular.module('app', [
 	'ui.router',
 	'angular-jwt',
 	'toastr',
-	'templates'
+	'templates',
+	'ngAnimate'
 ]);
 
 // Configure app state and location providers

@@ -14,4 +14,14 @@ $brand-danger:				#d9534f;
 $border-radius: 			0rem;
 $border-radius-lg:			0rem;
 $border-radius-sm:			0rem;
-$card-border-radius:		0rem;
+$card-border-radius:		.3rem;
+
+$input-border-radius:            .25rem;
+$input-border-radius-lg:         .3rem;
+$input-border-radius-sm:         .2rem;
+
+$font-family-sans-serif:     "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-bg:                    #eee;
+
+$enable-flex: 				true;
+$fa-font-path:   "../vendor/font-awesome/fonts";

@@ -1,6 +1,11 @@
-<div class="card card-block">
-	<h4 class="card-title" ng-bind="opp.title"></h4>
-	<p class="card-text" ng-bind="opp.abstract"></p>
-	<a href="#" class="card-link"><span ng-bind="opp.volunteersNeeded"></span> Volunteers Needed</a>
-	<a href="#" class="card-link">Another link</a>
+<div class="card">
+	<div class="card-block p-b-1">
+		<img class="pull-xs-left img-circle m-r-1" src="http://lorempixel.com/50/50/people/{{opp.id}}" alt="{{opp.title}}">
+		<h4 class="card-title" ng-bind="opp.title"></h4>
+		<h6 class="card-subtitle text-muted" ng-bind="opp.nonprofit.name"></h6>	
+	</div>
+	<div class="card-block p-t-0">
+		<p class="card-text" ng-bind="opp.abstract"></p>		
+		<button type="button" class="btn btn-primary btn-sm">Sign Up</button>
+	</div>
 </div>
