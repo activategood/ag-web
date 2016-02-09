@@ -11,6 +11,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 30,
 			nonprofit: {
 				name: 'North Carolina Community Action Association'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/1'
 			}
 		},
 		{
@@ -20,6 +23,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 22,
 			nonprofit: {
 				name: 'Clean Jordan Lake'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/2'
 			}
 		},
 		{
@@ -29,6 +35,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 5,
 			nonprofit: {
 				name: 'Clean Jordan Lake'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/3'
 			}
 		},
 		{
@@ -38,6 +47,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 10,
 			nonprofit: {
 				name: 'BUMP: The Triangle'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/4'
 			}
 		},
 		{
@@ -47,6 +59,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 30,
 			nonprofit: {
 				name: 'BUMP: The Triangle'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/5'
 			}
 		},
 		{
@@ -56,6 +71,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 22,
 			nonprofit: {
 				name: 'USCRI Raleigh'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/6'
 			}
 		},
 		{
@@ -65,6 +83,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 5,
 			nonprofit: {
 				name: 'Urban Ministries of Wake County'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/7'
 			}
 		},
 		{
@@ -74,6 +95,9 @@ function oppListPageCtrl ($scope) {
 			volunteersNeeded: 10,
 			nonprofit: {
 				name: 'North Raleigh Ministries'
+			},
+			image: {
+				url: 'http://lorempixel.com/600/400/people/8'
 			}
 		}
 	]
