@@ -6,8 +6,14 @@ var app = angular.module('app', [
 	'angular-jwt',
 	'toastr',
 	'templates',
-	'ngAnimate'
+	'ngAnimate',
+	'ngResource',
+	'infinite-scroll'
 ]);
+
+// Constants
+app.constant('API_URL', 'https://jq4efubjbd.execute-api.us-east-1.amazonaws.com');
+app.constant('API_BASE', '/test/');
 
 // Configure app state and location providers
 app.config(states);
@@ -18,12 +24,12 @@ function states ($stateProvider) {
 	$stateProvider
 		.state('home', {
 			url: '/',
-			controller: 'oppListPageCtrl',
+			controller: 'oppListPageController',
 			templateUrl: 'opportunities/oppListPage'
 		})
 		.state('opps', {
 			url: '/opportunities',
-			controller: 'oppListPageCtrl',
+			controller: 'oppListPageController',
 			templateUrl: 'opportunities/oppListPage'
 		});
 

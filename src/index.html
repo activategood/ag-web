@@ -17,18 +17,26 @@
 	<!-- endbuild -->
 
 	<!-- build:scripts -->
+	<script src="vendor/jquery/dist/jquery.min.js"></script>
 	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular-resource/angular-resource.js"></script>
 	<script src="vendor/angular-animate/angular-animate.js"></script>
 	<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="vendor/angular-jwt/dist/angular-jwt.js"></script>  
 	<script src="vendor/angular-toastr/dist/angular-toastr.js"></script>
+
+	<script src='vendor/ngInfiniteScroll/build/ng-infinite-scroll.js'></script>
+
 	<script src="app/templates.js"></script>
 	<script src="app/app.js"></script>
 
-	<script src="app/navBar/navBarDtv.js"></script>
-	<script src="app/opportunities/oppCardDtv.js"></script>
-	<script src="app/opportunities/oppListDtv.js"></script>
-	<script src="app/opportunities/oppListPageCtrl.js"></script>
+	<script src="app/apiServices/mockData.js"></script>
+	<script src="app/apiServices/oppService.js"></script>
+
+	<script src="app/navBar/navBarDirective.js"></script>
+	<script src="app/opportunities/oppCardDirective.js"></script>
+	<script src="app/opportunities/oppListDirective.js"></script>
+	<script src="app/opportunities/oppListPageController.js"></script>
 
 	<!-- endbuild -->
 	
@@ -37,7 +45,7 @@
 
 	<div class="jumbotron jumbotron-fluid ag-jumbotron m-b-0">
 		<div class="container p-l-0 p-r-0">
-			<h1 class="display-4 text-xs-center">Volunteer in the Triangle</h1>
+			<img src="images/ag-simple.png" />
 		</div>
 	</div>
 
@@ -49,14 +57,13 @@
 		</div>		
 	</div>
 
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<div class="col-xs-12" ui-view></div>
 		</div>
 	</div>
 
 	<!-- build:postscripts -->
-	<script src="vendor/jquery/dist/jquery.min.js"></script>
 	<script src="vendor/tether/dist/js/tether.js"></script>
 	<script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
 	<!-- endbuild -->

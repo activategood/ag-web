@@ -18,6 +18,7 @@ const gulp = require('gulp')
 
 const paths = {
   scripts: [
+    'src/vendor/ngInfiniteScroll/build/ng-infinite-scroll.js',
     'src/vendor/angular/angular.js',
     'src/vendor/angular-ui-router/release/angular-ui-router.js',
     'src/vendor/angular/angular.js',
@@ -30,7 +31,7 @@ const paths = {
 
 gulp.task('default', ['serve'])
 gulp.task('build', ['sass','templates','static'])
-gulp.task('static', ['copy:index','copy:js','copy:vendor'])
+gulp.task('static', ['copy:index','copy:js','copy:vendor','copy:images'])
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -58,6 +59,11 @@ gulp.task('templates', function() {
 gulp.task('copy:index', function() {
   return gulp.src('src/index.html')
     .pipe(gulp.dest('build'))
+})
+
+gulp.task('copy:images', function() {
+  return gulp.src('src/images/**/*')
+    .pipe(gulp.dest('build/images'))
 })
 
 gulp.task('copy:js', function() {

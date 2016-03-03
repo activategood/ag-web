@@ -26,19 +26,20 @@
 
 @include media-breakpoint-up(lg) {
   .card-columns {
-    column-count: 3;
+    column-count: 2;
   }
 }
 
 @include media-breakpoint-up(xl) {
   .card-columns {
-    column-count: 4;
+    column-count: 3;
   }
 }
 
 .ag-jumbotron {
-	@include gradient-vertical($gray-light, $ag-dark-blue, 0%, 100%)
-	color: #fff;
+	// @include gradient-vertical($gray-light, $ag-dark-blue, 0%, 100%)
+	background-color: #fff;
+	text-align: center;
 }
 
 .ag-navbar {

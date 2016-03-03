@@ -1,13 +1,14 @@
 <div class="card">
 	<div class="card-block">
-		<h4 class="card-title" ng-bind="opp.title"></h4>
-		<h6 class="card-subtitle text-muted" ng-bind="opp.nonprofit.name"></h6>	
+		<h4 class="card-title" ng-bind="::opp.title"></h4>
+		<h6 class="card-subtitle text-muted" ng-bind="::opp.nonprofit.name"></h6>	
 	</div>
-	<img ng-if="opp.image" class="img-fluid" src="{{opp.image.url}}" alt="{{opp.title}}">
+	<div ng-if="opp.image" >
+	<img class="img-fluid" ng-src="{{::opp.image.url}}" alt="{{::opp.title}}"></div>
 	<div class="card-block">
-		<p class="card-text" ng-bind="opp.abstract"></p>		
+		<p class="card-text" ng-bind="::opp.abstract"></p>		
 		<button type="button" class="btn btn-primary btn-sm">Sign Up</button>
-		<span class="card-text m-l-1" ng-bind="opp.volunteersNeeded"></span>
+		<span class="card-text m-l-1" ng-bind="::opp.volunteersNeeded"></span>
 		<span class="card-text"> volunteers needed!</span>
 	</div>
 </div>
