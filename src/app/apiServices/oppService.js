@@ -14,6 +14,7 @@ function oppService ($resource, mockData, API_URL, API_BASE) {
 	return {
 		more: more,
 		getAll: getAll,
+		getOne: getOne
 	};
 
 	function query (callback) {
@@ -35,7 +36,22 @@ function oppService ($resource, mockData, API_URL, API_BASE) {
 		// query(callback);
 	}
 
+	function getOne (id, callback) {
+		mockGetOne(id, callback);
+	}
+
 	function mockGetAll (callback) {
 		callback(mockData.opportunities);
+	}
+
+	function mockGetOne (id, callback) {
+
+		for (var ndx = 0; ndx < mockData.opportunities.length; ndx++) {
+			if (mockData.opportunities[ndx].id === id) {
+				callback(mockData.opportunities[ndx]);
+				return;
+			}
+		}
+
 	}
 }

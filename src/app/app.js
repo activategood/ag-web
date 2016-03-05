@@ -31,8 +31,12 @@ function states ($stateProvider) {
 			url: '/opportunities',
 			controller: 'oppListPageController',
 			templateUrl: 'opportunities/oppListPage'
+		})
+		.state('opps.signup', {
+			url: '/:id',
+			controller: 'signupPageController',
+			templateUrl: 'opportunities/signupPage'
 		});
-
 }
 
 function locations ($locationProvider) {

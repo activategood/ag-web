@@ -1,0 +1,9 @@
+<div class="container-fluid" ng-if="!session.user">
+	<button class="btn btn-primary pull-right m-r-1 m-l-1 m-t-1" ng-click="login()">Log In</button>
+	<button class="btn btn-secondary pull-right m-t-1">Sign Up</button>			
+</div>
+
+<div class="container-fluid" ng-if="session.user">
+	<button class="btn btn-secondary pull-right m-r-1 m-l-1 m-t-1" ng-click="logout()">Log Out</button>
+	<div class="pull-right m-t-1 m-r-1">Welcome, {{session.user.firstName}}!</div>
+</div>

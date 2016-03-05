@@ -7,8 +7,15 @@ function agOppCard () {
 		restrict: 'E',
 		replace: true,
 		scope: {
-			opp: '='
+			opp: '=',
 		},
-		templateUrl: 'opportunities/oppCard'
+		templateUrl: 'opportunities/oppCard',
+		link: function (scope, elem, attrs) {
+
+		    attrs.$observe('link', function() {
+		        scope.showLink = scope.$eval(attrs.link);
+		    });
+
+		}
 	}
 }
