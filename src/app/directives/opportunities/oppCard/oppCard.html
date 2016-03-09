@@ -1,0 +1,22 @@
+<div class="card">
+
+	<div class="card-block">
+		<h4 class="card-title" ng-class="{'m-b-0' : !shown('np')}">
+			<a ui-sref="signup({id:opp.id})" ng-if="shown('link')">{{::opp.title}}</a>
+			<span ng-if="!shown('link')">{{::opp.title}}</span>
+		</h4>
+		<h6 class="card-subtitle text-muted" ng-bind="::opp.nonprofit.name" ng-if="shown('np')"></h6>	
+	</div>
+
+	<div ng-if="opp.image && shown('image')">
+		<img class="img-fluid" ng-src="{{::opp.image.url}}" alt="{{::opp.title}}">
+	</div>
+
+	<div class="card-block" ng-class="{'p-t-0':!shown('image')}" ng-if="shown('body')">
+		<p class="card-text" ng-bind="::opp.abstract" ng-if="shown('abstract')"></p>		
+		<button ui-sref="signup({id:opp.id})" type="button" class="btn btn-primary btn-sm m-r-1" ng-if="shown('signup')">Sign Up</button>
+		<span class="card-text" ng-if="shown('volunteersNeeded')" ng-bind="::opp.volunteersNeeded"></span>
+		<span class="card-text" ng-if="shown('volunteersNeeded')"> volunteers needed!</span>
+	</div>
+
+</div>

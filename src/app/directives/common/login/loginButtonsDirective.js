@@ -6,7 +6,7 @@ angular.module('app').directive('agLoginButtons', agLoginButtons);
 function agLoginButtons (session) {
 	return {
 		restrict: 'E',
-		templateUrl: 'login/loginButtons',
+		templateUrl: 'directives/common/login/loginButtons',
 		link: function(scope) {
 
 			scope.session = session;

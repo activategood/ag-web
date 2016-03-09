@@ -25,17 +25,17 @@ function states ($stateProvider) {
 		.state('home', {
 			url: '/',
 			controller: 'oppListPageController',
-			templateUrl: 'opportunities/oppListPage'
+			templateUrl: 'pages/oppList/oppListPage'
 		})
 		.state('opps', {
 			url: '/opportunities',
 			controller: 'oppListPageController',
-			templateUrl: 'opportunities/oppListPage'
+			templateUrl: 'pages/oppList/oppListPage'
 		})
-		.state('opps.signup', {
-			url: '/:id',
+		.state('signup', {
+			url: '/opportunities/:id',
 			controller: 'signupPageController',
-			templateUrl: 'opportunities/signupPage'
+			templateUrl: 'pages/signup/signupPage'
 		});
 }
 

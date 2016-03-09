@@ -1,0 +1,148 @@
+// FootprintFeed
+
+{
+	"FeedInfo" : {
+		"providerID" : null,
+		"providerName" : null,
+		"feedID" : null,
+		"createdDateTime" : null,
+		"providerURL" : null,
+		"termsOfUse" : null,
+		"description" : null
+	},
+
+	"Organizations" : [
+		{
+			"organizationID" : null,
+			"nationalEIN" : null,
+			"guidestarID" : null,
+			"name" : null,
+			"missionStatement" : null,
+			"description" : null,
+			"location" : {
+				"virtual" : "no",
+				"name" : "Keith's Place",
+				"streetAddress1" : "704 E Hammond St",
+				"streetAddress2" : null,
+				"streetAddress3" : null,
+				"city" : "Durham",
+				"region" : "NC",
+				"postalCode" : "27704",
+				"country" : "US",
+				"latitude" : null,
+				"longitude" : null,
+				"directions" : null
+			},
+			"phone" : null,
+			"fax" : null,
+			"email" : null,
+			"organizationURL" : null,
+			"donateURL" : null,
+			"logoURL" : null,
+			"detailURL" : null,
+		}
+	],
+
+	"VolunteerOpportunties" : [
+		{
+			"volunteerOpportunityID" : null,
+			"sponsoringOrganizationIDs" : [
+				{ "sponsoringOrganizationID" : null	},
+				{ "sponsoringOrganizationID" : null }
+			],
+			"volunteerHubOrganizationIDs" : [
+				{ "volunteerHubOrganizationID" : null },
+				{ "volunteerHubOrganizationID" : null }
+			],
+			"title" : null,
+			"abstract" : null,
+			"volunteersNeeded" : null,
+			"rsvpCount" : null,
+			"dateTimeDurations" : [
+				{
+					"openEnded" : "no",
+					"startDate" : "2016-04-01",
+					"endDate" : "2016-04-01",
+					"startTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "12:00:00"
+					},
+					"endTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "15:00:00"
+					}
+				},
+				{
+					"openEnded" : "no",
+					"startDate" : "2016-04-02",
+					"endDate" : "2016-04-02",
+					"startTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "12:00:00"
+					},
+					"endTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "15:00:00"
+					}
+				},
+
+				// Example of using the iCalRecurrance to specify a biweekly Tuesday meeting, open-ended:
+				{
+					"openEnded" : "yes",
+					"startTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "12:00:00"
+					},
+					"endTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "15:00:00"
+					},
+					"iCalRecurrence" : "FREQ=WEEKLY;INTERVAL=2;WKST=SU;BYDAY=TU"
+				},
+
+				// Example of an open inviation to come in during business hours for a day:
+				{
+					"openEnded" : "no",
+					"startDate" : "2016-04-05",
+					"endDate" : "2016-04-05",
+					"startTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "9:00:00"
+					},
+					"endTime" : {
+						"olsonTZ" : "America/New_York",
+						"time" : "17:00:00"
+					},
+					"timeFlexible" : "yes"
+				},
+
+				// Example of a flexible, commitment of 2 months, with 10 hours of work per week:
+				{
+					"openEnded" : "yes",
+					"duration" : "P2M",
+					"timeFlexible" : "yes",
+					"commitmentHoursPerWeek": 10
+				}
+			],
+			"locations" : [],
+			"paid" : "no",
+			"audienceTags" : ["abawd","teens","court"],
+			"categoryTags" : ["homeless","hunger"],
+			"minimumAge" : 18,
+			"sexRestrictedTo" : "Female",
+			"skills" : ["Spanish"],
+			"contactName" : "John Smith",
+			"contactPhone" : null,
+			"contactEmail" : null,
+			"detailURL" : null,
+			"language" : "English",
+			"description" : null,
+			"expires" : {
+				"olsonTZ" : "America/New_York",
+				"date" : "2016-12-31",
+				"time" : "23:59:00"
+			}
+
+		}
+	]
+}

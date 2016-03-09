@@ -5,7 +5,7 @@ angular.module('app').directive('agNavBar', agNavBar);
 function agNavBar () {
 	return {
 		restrict: 'E',
-		templateUrl: 'navBar/navBar',
+		templateUrl: 'directives/common/navBar/navBar',
 		link: function(scope) {
 
 			scope.searchVisible = false;

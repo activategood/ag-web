@@ -15,7 +15,7 @@ function mockData () {
 		            "name": "North Carolina Community Action Association"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/1"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -27,7 +27,7 @@ function mockData () {
 		            "name": "Clean Jordan Lake"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/2"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -39,8 +39,23 @@ function mockData () {
 		            "name": "Clean Jordan Lake"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/3"
-		        }
+		            "url": "http://unsplash.it/600/400/?random"
+		        },
+		       	"dateTimeDurations" : [
+					{
+						"openEnded" : "no",
+						"startDate" : "2016-04-01",
+						"endDate" : "2016-04-01",
+						"startTime" : {
+							"olsonTZ" : "America/New_York",
+							"time" : "12:00:00"
+						},
+						"endTime" : {
+							"olsonTZ" : "America/New_York",
+							"time" : "15:00:00"
+						}
+					}
+				]
 		    },
 		    {
 		        "id": "4",
@@ -51,7 +66,7 @@ function mockData () {
 		            "name": "BUMP: The Triangle"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/4"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -63,7 +78,7 @@ function mockData () {
 		            "name": "BUMP: The Triangle"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/5"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -75,7 +90,7 @@ function mockData () {
 		            "name": "USCRI Raleigh"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/6"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -87,7 +102,7 @@ function mockData () {
 		            "name": "Urban Ministries of Wake County"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/7"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    },
 		    {
@@ -99,7 +114,7 @@ function mockData () {
 		            "name": "North Raleigh Ministries"
 		        },
 		        "image": {
-		            "url": "http://lorempixel.com/600/400/people/8"
+		            "url": "http://unsplash.it/600/400/?random"
 		        }
 		    }
 		]
