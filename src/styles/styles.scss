@@ -11,29 +11,61 @@
 @include bg-variant('.bg-red', $ag-red);
 @include bg-variant('.bg-orange', $ag-orange);
 
-
-@include media-breakpoint-up(sm) {
-  .card-columns {
-    column-count: 1;
-  }
+.label-dark-green {
+  @include label-variant($ag-dark-green);
 }
 
-@include media-breakpoint-up(md) {
-  .card-columns {
-    column-count: 2;
-  }
+.label-light-green {
+  @include label-variant($ag-light-green);
 }
 
-@include media-breakpoint-up(lg) {
-  .card-columns {
-    column-count: 2;
-  }
+.label-dark-blue {
+  @include label-variant($ag-dark-blue);
 }
 
-@include media-breakpoint-up(xl) {
-  .card-columns {
-    column-count: 3;
-  }
+.label-light-blue {
+  @include label-variant($ag-light-blue);
+}
+
+.label-red {
+  @include label-variant($ag-red);
+}
+
+.label-orange {
+  @include label-variant($ag-orange);
+}
+
+
+// @include media-breakpoint-up(sm) {
+//   .card-columns {
+//     column-count: 1;
+//   }
+// }
+
+// @include media-breakpoint-up(md) {
+//   .card-columns {
+//     column-count: 2;
+//   }
+// }
+
+// @include media-breakpoint-up(lg) {
+//   .card-columns {
+//     column-count: 2;
+//   }
+// }
+
+// @include media-breakpoint-up(xl) {
+//   .card-columns {
+//     column-count: 3;
+//   }
+// }
+
+.opp-card > .card-header > a {
+	color: $ag-orange;
+}
+
+.opp-card .label {
+	margin-right: 5px;
 }
 
 .ag-jumbotron {

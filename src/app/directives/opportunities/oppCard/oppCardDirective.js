@@ -9,31 +9,31 @@ function agOppCard () {
 		scope: {
 			opp: '=',
 		},
-		templateUrl: 'directives/opportunities/oppCard/oppCard',
-		link: function (scope, elem, attrs) {
+		templateUrl: 'directives/opportunities/oppCard/oppCard'
+		// link: function (scope, elem, attrs) {
 
-			if (attrs.hide && attrs.show)
-				throw ("Attributes hide and show are mutually exclusive.")
+		// 	if (attrs.hide && attrs.show)
+		// 		throw ("Attributes hide and show are mutually exclusive.")
 
-			var hide, show = null;
+		// 	var hide, show = null;
 
-			if (attrs.hide) hide = attrs.hide.split(" ");
-			if (attrs.show) show = attrs.show.split(" ");
+		// 	if (attrs.hide) hide = attrs.hide.split(" ");
+		// 	if (attrs.show) show = attrs.show.split(" ");
 
-			scope.shown = shown;
+		// 	scope.shown = shown;
 
-			function shown (val) {
+		// 	function shown (val) {
 
-				if (hide) {
-					return (hide.indexOf(val) === -1);
-				} else if (show) {
-					return (show.indexOf(val) !== -1);	
-				} else {
-					return true;
-				}
+		// 		if (hide) {
+		// 			return (hide.indexOf(val) === -1);
+		// 		} else if (show) {
+		// 			return (show.indexOf(val) !== -1);	
+		// 		} else {
+		// 			return true;
+		// 		}
 			 	
-			}
+		// 	}
 
-		}
+		// }
 	}
 }

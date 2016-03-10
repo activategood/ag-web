@@ -1,3 +1,8 @@
-<div class="card-columns" infinite-scroll="nextPage()" infinite-scroll-distance="3">
-	<ag-opp-card opp="opp" show="image link abstract np" ng-repeat="opp in opps track by $index"></ag-opp-card>
+<div class="row">
+	<div class="col-xs-12 col-lg-4">
+		
+	</div>
+	<div class="col-xs-12 col-lg-8" infinite-scroll="nextPage()" infinite-scroll-distance="3">
+		<ag-opp-card opp="opp" ng-repeat="opp in opps track by $index"></ag-opp-card>
+	</div>
 </div>

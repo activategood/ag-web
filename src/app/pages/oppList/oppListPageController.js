@@ -23,6 +23,7 @@ function oppListPageController ($scope, oppService) {
 	function setImageUrl(opps) {
 		opps.map(function (opp) {
 			oppCount++;
+			opp.id = oppCount;
 			opp.image.url = "http://unsplash.it/600/400/?random=" + oppCount
 		});
 	}

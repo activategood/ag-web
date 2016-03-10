@@ -32,6 +32,11 @@ function states ($stateProvider) {
 			controller: 'oppListPageController',
 			templateUrl: 'pages/oppList/oppListPage'
 		})
+		.state('nonprofit', {
+			url: '/nonprofits/:id',
+			controller: 'signupPageController',
+			templateUrl: 'pages/signup/signupPage'
+		})
 		.state('signup', {
 			url: '/opportunities/:id',
 			controller: 'signupPageController',
