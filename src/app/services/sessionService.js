@@ -1,12 +1,16 @@
-'use strict';
+(function (angular) {
 
-angular.module('app').factory('session', session);
+	'use strict';
 
-/* ngInject */
-function session () {
+	angular.module('app').factory('session', session);
 
-	return {
-		user: null
-	};
+	/* ngInject */
+	function session () {
 
-}
+		return {
+			user: null
+		};
+
+	}
+
+})(angular);

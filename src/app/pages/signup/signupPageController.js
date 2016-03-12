@@ -1,18 +1,17 @@
-'use strict';
+(function (angular, _) {
 
-angular.module('app').controller('signupPageController', signupPageController);
+	'use strict';
 
-/* ngInject */
-function signupPageController ($scope, $stateParams, $http) {
+	angular.module('app').controller('signupPageController', signupPageController);
 
-	$http.get('data/opportunities.json').then(function (response) {
-		var opps = response.data;
-		for (var ndx = 0; ndx < opps.length; ndx++) {
-			if (opps[ndx].id === $stateParams.id) {
-				$scope.opp = opps[ndx];
-				break;
-			}
-		}
-	})
+	/* ngInject */
+	function signupPageController ($scope, $stateParams, $http) {
 
-}
+		$http.get('data/opportunities.json').then(function (response) {
+			var opps = response.data;
+			$scope.opp = _.findWhere(opps, {id: $stateParams.id});
+		})
+
+	}
+
+})(angular, _);

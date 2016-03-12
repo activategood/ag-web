@@ -25,13 +25,14 @@ const paths = {
     'src/vendor/angular-jwt/dist/angular-jwt.js',
     'src/vendor/angular-toastr/dist/angular-toastr.js',
     'src/vendor/jquery/dist/jquery.min.js',
-    'src/vendor/bootstrap/dist/js/bootstrap.min.js'
+    'src/vendor/bootstrap/dist/js/bootstrap.min.js',
+    'src/vendor/underscore/underscore.js'
   ]
 };
 
 gulp.task('default', ['serve'])
 gulp.task('build', ['sass','templates','static'])
-gulp.task('static', ['copy:index','copy:js','copy:vendor','copy:images','copy:data'])
+gulp.task('static', ['copy:index','copy:app','copy:js','copy:vendor','copy:images','copy:data'])
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -66,12 +67,19 @@ gulp.task('copy:images', function() {
     .pipe(gulp.dest('build/images'))
 })
 
-gulp.task('copy:js', function() {
+gulp.task('copy:app', function() {
   return gulp.src([
       'src/app/app.js',
       'src/app/**/*.js'
     ])
     .pipe(gulp.dest('build/app'))
+})
+
+gulp.task('copy:js', function() {
+  return gulp.src([
+      'src/scripts/**/*.js'
+    ])
+    .pipe(gulp.dest('build/scripts'))
 })
 
 gulp.task('copy:data', function() {
@@ -122,5 +130,5 @@ gulp.task('serve', ['build'], function() {
   })
 
   gulp.watch(['styles/**/*.scss'], {cwd: 'src'}, ['reload:sass'])
-  gulp.watch(['*.html', 'app/**/*.html', 'app/**/*.js'], {cwd: 'src'}, ['reload:static']);
+  gulp.watch(['*.html', 'app/**/*.html', 'app/**/*.js', 'scripts/**/*.js'], {cwd: 'src'}, ['reload:static']);
 })

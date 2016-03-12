@@ -1,28 +1,32 @@
-'use strict';
+(function (angular) {
 
-angular.module('app').directive('agLoginButtons', agLoginButtons);
+	'use strict';
 
-/* ngInject */
-function agLoginButtons (session) {
-	return {
-		restrict: 'E',
-		templateUrl: 'directives/common/login/loginButtons',
-		link: function(scope) {
+	angular.module('app').directive('agLoginButtons', agLoginButtons);
 
-			scope.session = session;
+	/* ngInject */
+	function agLoginButtons (session) {
+		return {
+			restrict: 'E',
+			templateUrl: 'directives/common/login/loginButtons',
+			link: function(scope) {
 
-			scope.login = function() {										
-	 			session.user = {
-	 				firstName: 'Keith',
-	 				lastName: 'Morris',
-	 				email: 'keith@activategood.org'
-	 			}
+				scope.session = session;
+
+				scope.login = function() {										
+		 			session.user = {
+		 				firstName: 'Keith',
+		 				lastName: 'Morris',
+		 				email: 'keith@activategood.org'
+		 			}
+				}
+
+				scope.logout = function() {
+					session.user = null;
+				}
+
 			}
-
-			scope.logout = function() {
-				session.user = null;
-			}
-
 		}
 	}
-}
+
+})(angular);

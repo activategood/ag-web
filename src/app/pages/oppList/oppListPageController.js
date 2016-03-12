@@ -1,30 +1,34 @@
-'use strict';
+(function (angular) {
 
-angular.module('app').controller('oppListPageController', oppListPageController);
+	'use strict';
 
-/* ngInject */
-function oppListPageController ($scope, $http) {
+	angular.module('app').controller('oppListPageController', oppListPageController);
 
-	var oppCount = 0;
-	$scope.opps = [];
-	refreshOpps();
+	/* ngInject */
+	function oppListPageController ($scope, $http) {
 
-	$scope.nextPage = refreshOpps;
+		var oppCount = 0;
+		$scope.opps = [];
+		refreshOpps();
 
-	function refreshOpps () {
-		$http.get('data/opportunities.json').then(function (response) {
-			var opps = response.data;
-			setImageUrl(opps);
-			$scope.opps = $scope.opps.concat(opps);
-		});
+		$scope.nextPage = refreshOpps;
+
+		function refreshOpps () {
+			$http.get('data/opportunities.json').then(function (response) {
+				var opps = response.data;
+				setImageUrl(opps);
+				$scope.opps = $scope.opps.concat(opps);
+			});
+		}
+
+		function setImageUrl(opps) {
+			opps.map(function (opp) {
+				oppCount++;
+				opp.id = oppCount;
+				opp.image.url = "http://unsplash.it/600/400/?random=" + oppCount
+			});
+		}
+
 	}
 
-	function setImageUrl(opps) {
-		opps.map(function (opp) {
-			oppCount++;
-			opp.id = oppCount;
-			opp.image.url = "http://unsplash.it/600/400/?random=" + oppCount
-		});
-	}
-
-}
+})(angular);

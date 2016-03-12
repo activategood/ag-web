@@ -1,20 +1,24 @@
-'use strict';
+(function (angular) {
 
-angular.module('app').directive('agNavBar', agNavBar);
+	'use strict';
 
-function agNavBar () {
-	return {
-		restrict: 'E',
-		templateUrl: 'directives/common/navBar/navBar',
-		link: function(scope) {
+	angular.module('app').directive('agNavBar', agNavBar);
 
-			scope.searchVisible = false;
-			scope.toggleSearch = toggleSearch;
+	function agNavBar () {
+		return {
+			restrict: 'E',
+			templateUrl: 'directives/common/navBar/navBar',
+			link: function(scope) {
 
-			function toggleSearch () {
-				scope.searchVisible = !scope.searchVisible;
+				scope.searchVisible = false;
+				scope.toggleSearch = toggleSearch;
+
+				function toggleSearch () {
+					scope.searchVisible = !scope.searchVisible;
+				}
+
 			}
-
 		}
 	}
-}
+
+})(angular);
