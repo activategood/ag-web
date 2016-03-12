@@ -31,7 +31,7 @@ const paths = {
 
 gulp.task('default', ['serve'])
 gulp.task('build', ['sass','templates','static'])
-gulp.task('static', ['copy:index','copy:js','copy:vendor','copy:images'])
+gulp.task('static', ['copy:index','copy:js','copy:vendor','copy:images','copy:data'])
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -72,6 +72,13 @@ gulp.task('copy:js', function() {
       'src/app/**/*.js'
     ])
     .pipe(gulp.dest('build/app'))
+})
+
+gulp.task('copy:data', function() {
+  return gulp.src([
+      'src/app/data/*.json'
+    ])
+    .pipe(gulp.dest('build/data'))
 })
 
 gulp.task('copy:vendor', function() {
